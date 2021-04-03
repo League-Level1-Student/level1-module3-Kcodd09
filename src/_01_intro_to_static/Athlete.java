@@ -13,6 +13,10 @@ public class Athlete {
         this.name = name;
         this.speed = speed;
     }
+    public int bib() {
+    	bibNumber = nextBibNumber++;
+    	return bibNumber;
+    }
 
     public static void main(String[] args) {
         //create two athletes
@@ -21,8 +25,8 @@ public class Athlete {
     	Athlete b = new Athlete("B", 12);
     	System.out.println(a.name);
     	System.out.println(b.name);
-    	System.out.println(a.bibNumber);
-    	System.out.println(nextBibNumber);
+    	System.out.println(a.bib());
+    	System.out.println(b.bib());
     	
     	
     }

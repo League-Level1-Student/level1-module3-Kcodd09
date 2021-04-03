@@ -26,9 +26,11 @@ public class Jukebox implements Runnable {
 
 		// 1. Find an mp3 on your computer or on the Internet.
 		// 2. Create a Song object for that mp3
-
+    	Song downByTheRiver = new Song("Milky Chance - Down by the River.mp3");
+    	Song beautifulMistakes = new Song("Maroon 5, Megan Thee Stallion - Beautiful Mistakes.mp3");
+    	Song quicksand = new Song("Morray - Quicksand.mp3");
 		// 3. Play the Song
-
+    	downByTheRiver.play();
 		/*
 		 * 4. Create a user interface for your Jukebox so that the user can to
 		 * choose which song to play. You can use can use a different button for
