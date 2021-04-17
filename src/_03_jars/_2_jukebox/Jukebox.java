@@ -5,6 +5,8 @@ package _03_jars._2_jukebox;
  */
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -12,7 +14,10 @@ import java.net.URL;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import javazoom.jl.player.advanced.AdvancedPlayer;
@@ -20,17 +25,23 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 /*   If you don't have javazoom.jar in your project, you can download it from here: http://bit.ly/javazoom
  *   Right click your project and add it as a JAR (Under Java Build Path > Libraries).*/
 
-public class Jukebox implements Runnable {
-
+public class Jukebox implements Runnable, ActionListener {
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton button = new JButton();
+	JButton button2 = new JButton();
+	JButton button3 = new JButton();
+	Song downByTheRiver = new Song("Milky Chance - Down by the River.mp3");
+	Song beautifulMistakes = new Song("Maroon 5, Megan Thee Stallion - Beautiful Mistakes.mp3");
+	Song quicksand = new Song("Morray - Quicksand.mp3");
+	
     public void run() {
 
 		// 1. Find an mp3 on your computer or on the Internet.
 		// 2. Create a Song object for that mp3
-    	Song downByTheRiver = new Song("Milky Chance - Down by the River.mp3");
-    	Song beautifulMistakes = new Song("Maroon 5, Megan Thee Stallion - Beautiful Mistakes.mp3");
-    	Song quicksand = new Song("Morray - Quicksand.mp3");
+    	
 		// 3. Play the Song
-    	downByTheRiver.play();
+    	
 		/*
 		 * 4. Create a user interface for your Jukebox so that the user can to
 		 * choose which song to play. You can use can use a different button for
@@ -38,6 +49,28 @@ public class Jukebox implements Runnable {
 		 * cover is clicked, stop the currently playing song, and play the one
 		 * that was selected.
 		 */
+    	
+    	frame.add(panel);
+    	frame.setVisible(true);
+    	frame.setSize(500, 500);
+    	panel.add(button);
+    	panel.add(button2);
+    	panel.add(button3);
+    	frame.pack();
+    	button.addActionListener(this);
+    	button2.addActionListener(this);
+    	button3.addActionListener(this);
+    	button.add(loadImage("downByTheRiver.jpg"));
+    	button.setSize(100, 100);
+    	button2.add(loadImage("beautifulMistakes.jpg"));
+    	button2.setSize(100, 100);
+    	button3.add(loadImage("quicksand.jpg"));
+    	button.setSize(100,100);
+    	frame.pack();
+    	
+    	
+    	
+   
     }
     
     
@@ -46,6 +79,28 @@ public class Jukebox implements Runnable {
 		URL imageURL = getClass().getResource(fileName);
 		Icon icon = new ImageIcon(imageURL);
 		return new JLabel(icon);
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		JButton buttonPressed = (JButton) arg0.getSource();
+		if(buttonPressed == button) {
+			downByTheRiver.play();
+			beautifulMistakes.stop();
+			quicksand.stop();
+		}
+		else if(buttonPressed == button2) {
+			beautifulMistakes.play();
+			downByTheRiver.stop();
+			quicksand.stop();
+		}
+		else {
+			quicksand.play();
+			beautifulMistakes.stop();
+			downByTheRiver.stop();
+		}
 	}
 
 }
