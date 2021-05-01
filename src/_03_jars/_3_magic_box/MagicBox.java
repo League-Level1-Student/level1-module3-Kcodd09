@@ -38,7 +38,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	 */
 	JFrame frame = new JFrame();
 	BufferedImage backgroundImage;
-
+	
 
 	@Override
 	public void run() {
@@ -48,6 +48,8 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 		} catch (Exception w) {
 			System.err.println(w.getMessage());
 		}
+		frame.addMouseListener(this);
+		
 	}
 
 	private void createUI() {
@@ -76,7 +78,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		System.out.println(this.backgroundImage.getRGB(e.getX(), e.getY()));
 	}
 
 	@Override

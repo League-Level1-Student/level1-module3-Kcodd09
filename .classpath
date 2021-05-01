@@ -6,10 +6,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="src/gridworld.jar"/>
-	<classpathentry kind="lib" path="src/javazoom.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Katie/Downloads/robot.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Katie/Downloads/javazoom.jar"/>
 	<classpathentry kind="lib" path="src/_03_jars/_3_magic_box/javazoom (1).jar"/>
+	<classpathentry kind="lib" path="src/_03_jars/_3_magic_box/javazoom (2).jar"/>
+	<classpathentry kind="lib" path="src/javazoom.jar"/>
+	<classpathentry kind="lib" path="src/gridworld.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
